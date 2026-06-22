@@ -2,16 +2,17 @@
 
 import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
 class Settings:
-    # 数据库
+    # 数据库（同步模式，MVP 阶段使用 psycopg2）
     DATABASE_URL: str = os.getenv(
         "DATABASE_URL",
-        "postgresql+pg8000://zhixue@localhost:5433/zhixue",
+        "postgresql://zhixue:zhixue_pass@localhost:5432/zhixue",
     )
 
     # 文件存储路径

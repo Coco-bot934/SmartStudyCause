@@ -1,0 +1,52 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "后端 (FastAPI)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "app.main:app",
+        "--reload",
+        "--port",
+        "8000"
+      ],
+      "cwd": "${workspaceFolder}/backend",
+      "jinja": true,
+      "justMyCode": true,
+      "python": "${workspaceFolder}/backend/.venv/Scripts/python.exe",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/backend"
+      }
+    },
+    {
+      "name": "前端 (Vue3 学生端)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/frontend/student",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "前端 (Vue3 老师后台)",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/frontend/teacher",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "console": "integratedTerminal"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "全部启动 (后端 + 学生端 + 老师端)",
+      "configurations": ["后端 (FastAPI)", "前端 (Vue3 学生端)", "前端 (Vue3 老师后台)"]
+    },
+    {
+      "name": "仅后端 + 学生端",
+      "configurations": ["后端 (FastAPI)", "前端 (Vue3 学生端)"]
+    }
+  ]
+}

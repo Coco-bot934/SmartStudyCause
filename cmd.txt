@@ -1,0 +1,19 @@
+docker compose up -d
+alembic upgrade head
+
+ubantu:zhou,	123
+
+查看docker容器状态
+docker ps
+
+alembic upgrade head 数据库是否通
+
+pgadmin
+然后浏览器打开 http://localhost:5050，添加服务器连接：
+
+Host: host.docker.internal
+Port: 5433
+Username: zhixue
+Password: (留空，trust 认证)
+DBeaver — 免费通用数据库工具，支持 PostgreSQL，下载安装后新建连接选 PostgreSQL，填 localhost:5433、用户 zhixue、密码空
+VS Code 插件 — 安装 "PostgreSQL" (by Chris Kolkman) 或 "SQLTools"，配置连接 localhost:5433，用户 zhixue
